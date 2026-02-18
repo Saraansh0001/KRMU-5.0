@@ -101,12 +101,26 @@ header {
 }
 
 /* ===============================
-   SEARCH INPUT ANIMATION
+   SEARCH INPUT ANIMATION WITH EXPAND
 ================================ */
+.search-form {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 100;
+}
+
+.search-form.expanded {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70% !important;
+  max-width: 800px;
+}
+
 .form-control {
   background: rgba(255,255,255,0.9);
   border: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .form-control:hover {
@@ -117,8 +131,17 @@ header {
 
 .form-control:focus {
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 0.25rem rgba(20, 98, 166, 0.3);
+  box-shadow: 0 0 0 0.35rem rgba(68, 193, 242, 0.4);
   transform: translateY(-2px);
+  background: white;
+}
+
+/* Hide nav items when search is expanded */
+.search-expanded .nav,
+.search-expanded .dropdown {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
 }
 
 /* ===============================
@@ -190,7 +213,7 @@ header {
 
 <header class="p-3 mb-3">
   <div class="container">
-    <div id="header-container" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div id="header-container" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="position: relative;">
       
       <!-- Logo -->
       <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
@@ -199,15 +222,16 @@ header {
 
       <!-- Nav Links -->
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-        <li><a href="#" class="nav-link px-2">Statistics</a></li>
-        <li><a href="#" class="nav-link px-2">Certification</a></li>
-        <li><a href="#" class="nav-link px-2">Next Steps</a></li>
+        <li><a href="#" class="nav-link px-2 link-secondary">Dashboard</a></li>
+        <li><a href="#" class="nav-link px-2">Knowledge Graph</a></li>
+        <li><a href="#" class="nav-link px-2">Analytics</a></li>
+        <li><a href="#" class="nav-link px-2">Integrations</a></li>
+        <li><a href="#" class="nav-link px-2">Certificates</a></li>
       </ul>
 
       <!-- Search -->
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control" placeholder="Search...">
+      <form class="search-form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" id="searchInput" class="form-control" placeholder="Discover relationships in your skill map…">
       </form>
 
       <!-- Dropdown -->
@@ -229,6 +253,26 @@ header {
 </header>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Search bar expansion functionality
+  const searchInput = document.getElementById('searchInput');
+  const searchForm = document.querySelector('.search-form');
+  const headerContainer = document.getElementById('header-container');
+
+  searchInput.addEventListener('focus', function() {
+    searchForm.classList.add('expanded');
+    headerContainer.classList.add('search-expanded');
+  });
+
+  searchInput.addEventListener('blur', function() {
+    // Small delay to allow clicking on search results if needed
+    setTimeout(() => {
+      searchForm.classList.remove('expanded');
+      headerContainer.classList.remove('search-expanded');
+    }, 150);
+  });
+</script>
 
 </body>
 </html>
