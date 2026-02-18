@@ -1,0 +1,168 @@
+/* ===============================
+   ORIGINAL COLOR PALETTE
+================================ */
+:root {
+  --primary-blue: #1462A6;
+  --navy-blue: #0A3D62;
+  --sky-blue: #44C1F2;
+  --custom-blue: #006ebd;      
+  --cyan: #72F2F2;
+  --coral: #D98673;
+  --dark: #0D0D0D;
+}
+
+/* ===============================
+   HEADER
+================================ */
+header {
+  background: linear-gradient(135deg, var(--navy-blue), var(--dark));
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(114, 242, 242, 0.2);
+  box-shadow: 0 4px 20px rgba(68, 193, 242, 0.15);
+}
+
+/* ===============================
+   NAV BOX HIGHLIGHT ANIMATION
+================================ */
+.nav-link {
+  position: relative;
+  color: white !important;
+  font-weight: 500;
+  padding: 6px 14px !important;
+  border-radius: 8px;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--sky-blue)
+  );
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+  box-shadow: 0 6px 18px rgba(68, 193, 242, 0.5);
+}
+
+/* ===============================
+   SEARCH INPUT ANIMATION WITH EXPAND
+================================ */
+.search-form {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 100;
+}
+
+.search-form.expanded {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70% !important;
+  max-width: 800px;
+}
+
+.form-control {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.form-control:hover {
+  border-color: var(--sky-blue);
+  box-shadow: 0 0 0 0.15rem rgba(68, 193, 242, 0.25);
+  transform: translateY(-2px);
+}
+
+.form-control:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.35rem rgba(68, 193, 242, 0.4);
+  transform: translateY(-2px);
+  background: white;
+}
+
+/* Hide nav items when search is expanded */
+.search-expanded .nav,
+.search-expanded .dropdown {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* ===============================
+   PROFILE AVATAR
+================================ */
+.profile-avatar {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--custom-blue));
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-avatar:hover {
+  background: linear-gradient(135deg, var(--sky-blue), var(--cyan));
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(114, 242, 242, 0.5);
+}
+
+/* ===============================
+   DROPDOWN ANIMATION
+================================ */
+.dropdown-menu {
+  background: linear-gradient(160deg, var(--navy-blue), var(--dark));
+  border: 1px solid rgba(114, 242, 242, 0.2);
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-item {
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
+  color: white;
+  transform: translateX(6px);
+}
+
+.dropdown-divider {
+  border-color: var(--cyan);
+}
+
+.dropdown-toggle::after {
+  color: var(--cyan);
+}
+
+#header-container ul li {
+  margin: 0px 7.5px;
+}

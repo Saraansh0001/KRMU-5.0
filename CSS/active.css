@@ -1,0 +1,13 @@
+.nav-link.active {
+  color: white !important;
+}
+
+.nav-link.active::before {
+  opacity: 1;
+  transform: scaleX(1);
+  background: linear-gradient(
+    135deg,
+    var(--sky-blue),
+    var(--cyan)
+  );
+}

@@ -1,0 +1,44 @@
+.foot {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Flowing Gradient Text */
+.foot-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  background: linear-gradient(
+    90deg,
+    var(--navy-blue),
+    var(--primary-blue),
+    var(--custom-blue),
+    var(--sky-blue),
+    var(--cyan),
+    var(--coral),
+    var(--dark),
+    var(--navy-blue)
+  );
+
+  background-size: 400% 400%;
+  animation: luxuryTextFlow 30s ease infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Slow Luxury Movement */
+@keyframes luxuryTextFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

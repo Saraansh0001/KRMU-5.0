@@ -1,279 +1,296 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Skills</title>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Skills</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/active.css">
+  <link rel="stylesheet" href="CSS/header.css">
+  <link rel="stylesheet" href="CSS/footer.css">
 
-<style>
+  <style>
 
-/* ===============================
-   YOUR ORIGINAL COLOR PALETTE
-================================ */
-:root {
-  --primary-blue: #1462A6;
-  --navy-blue: #0A3D62;
-  --sky-blue: #44C1F2;
-  --custom-blue: #006ebd;      
-  --cyan: #72F2F2;
-  --coral: #D98673;
-  --dark: #0D0D0D;
-}
+    /* ===============================
+      ORIGINAL COLOR PALETTE
+    ================================ */
+    :root {
+      --primary-blue: #1462A6;
+      --navy-blue: #0A3D62;
+      --sky-blue: #44C1F2;
+      --custom-blue: #006ebd;      
+      --cyan: #72F2F2;
+      --coral: #D98673;
+      --dark: #0D0D0D;
+    }
 
-/* ===============================
-   BODY BACKGROUND
-================================ */
-body {
-  background: linear-gradient(
-    145deg,
-    var(--sky-blue) 0%,
-    var(--primary-blue) 35%,
-    var(--navy-blue) 75%,
-    var(--dark) 100%
-  );
-  min-height: 100vh;
-}
+    /* ===============================
+      BODY BACKGROUND
+    ================================ */
+    body {
+      background: linear-gradient(
+        145deg,
+        var(--sky-blue) 0%,
+        var(--primary-blue) 35%,
+        var(--navy-blue) 75%,
+        var(--dark) 100%
+      );
+      min-height: 100vh;
+    }
 
-/* ===============================
-   HEADER
-================================ */
-header {
-  background: linear-gradient(135deg, var(--navy-blue), var(--dark));
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(114, 242, 242, 0.2);
-  box-shadow: 0 4px 20px rgba(68, 193, 242, 0.15);
-}
+    /* ===============================
+      PROFILE
+    ================================ */
+    .profile-avatar {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--custom-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-/* ===============================
-   NAV BOX HIGHLIGHT ANIMATION
-================================ */
-.nav-link {
-  position: relative;
-  color: white !important;
-  font-weight: 500;
-  padding: 6px 14px !important;
-  border-radius: 8px;
-  transition: color 0.3s ease;
-  z-index: 1;
-}
+    /* ===============================
+      HERO SECTION
+    ================================ */
+    .hero {
+      padding: 120px 20px;
+      text-align: center;
+    }
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue),
-    var(--sky-blue)
-  );
-  opacity: 0;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
-}
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--cyan), white);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.nav-link:hover {
-  color: white !important;
-}
+    .hero p {
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
 
-.nav-link:hover::before {
-  opacity: 1;
-  transform: scaleX(1);
-  box-shadow: 0 6px 18px rgba(68, 193, 242, 0.5);
-}
+    /* ===============================
+      SECTION STYLING
+    ================================ */
+    .section {
+      padding: 80px 20px;
+    }
 
-.nav-link.link-secondary {
-  color: white !important;
-}
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
 
-.nav-link.link-secondary::before {
-  opacity: 1;
-  transform: scaleX(1);
-  background: linear-gradient(
-    135deg,
-    var(--sky-blue),
-    var(--cyan)
-  );
-}
+    /* ===============================
+      CARDS
+    ================================ */
+    .card-custom {
+      background: linear-gradient(160deg, var(--navy-blue), var(--dark));
+      border: 1px solid rgba(114, 242, 242, 0.2);
+      border-radius: 16px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
 
-/* ===============================
-   SEARCH INPUT ANIMATION WITH EXPAND
-================================ */
-.search-form {
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 100;
-}
+    .card-custom:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(68, 193, 242, 0.3);
+    }
 
-.search-form.expanded {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70% !important;
-  max-width: 800px;
-}
+    .card-custom h5 {
+      color: var(--cyan);
+    }
 
-.form-control {
-  background: rgba(255,255,255,0.9);
-  border: 1px solid transparent;
-  transition: all 0.5s ease;
-}
+    /* ===============================
+      FOOTER
+    ================================ */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: transparent;  /* ✔ Keep same page background */
+      border-top: 1px solid rgba(114, 242, 242, 0.2);
+    }
 
-.form-control:hover {
-  border-color: var(--sky-blue);
-  box-shadow: 0 0 0 0.15rem rgba(68, 193, 242, 0.25);
-  transform: translateY(-2px);
-}
+    .row p {
+      color: rgb(198, 216, 216);
+    }
 
-.form-control:focus {
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 0.35rem rgba(68, 193, 242, 0.4);
-  transform: translateY(-2px);
-  background: white;
-}
+    .container h2{
+      color: #4DE3D9;
+    }
 
-/* Hide nav items when search is expanded */
-.search-expanded .nav,
-.search-expanded .dropdown {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
-}
+    .changed{
+      margin-top: -120px;
+    }
 
-/* ===============================
-   PROFILE AVATAR
-================================ */
-.profile-avatar {
-  width: 34px;
-  height: 34px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--custom-blue));
-  color: white;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+  </style>
+  </head>
 
-.profile-avatar:hover {
-  background: linear-gradient(135deg, var(--sky-blue), var(--cyan));
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 18px rgba(114, 242, 242, 0.5);
-}
+  <body>
 
-/* ===============================
-   DROPDOWN ANIMATION (FIXED)
-================================ */
-.dropdown-menu {
-  background: linear-gradient(160deg, var(--navy-blue), var(--dark));
-  border: 1px solid rgba(114, 242, 242, 0.2);
-  opacity: 0;
-  transform: translateY(10px) scale(0.95);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dropdown-menu.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.dropdown-item {
-  color: white;
-  transition: all 0.25s ease;
-}
-
-.dropdown-item:hover {
-  background: linear-gradient(135deg, var(--primary-blue), var(--sky-blue));
-  color: white;
-  transform: translateX(6px);
-}
-
-.dropdown-divider {
-  border-color: var(--cyan);
-}
-
-.dropdown-toggle::after {
-  color: var(--cyan);
-}
-
-#header-container ul li {
-  margin: 0px 7.5px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header class="p-3 mb-3">
-  <div class="container">
-    <div id="header-container" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="position: relative;">
-      
-      <!-- Logo -->
-      <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
-        <img src="/bullseye.svg" alt="Logo" style="width: 40px; height:50px; margin: 0 30px 0 -10px;">
-      </a>
-
-      <!-- Nav Links -->
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Dashboard</a></li>
-        <li><a href="#" class="nav-link px-2">Knowledge Graph</a></li>
-        <li><a href="#" class="nav-link px-2">Analytics</a></li>
-        <li><a href="#" class="nav-link px-2">Integrations</a></li>
-        <li><a href="#" class="nav-link px-2">Certificates</a></li>
-      </ul>
-
-      <!-- Search -->
-      <form class="search-form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" id="searchInput" class="form-control" placeholder="Discover relationships in your skill map…">
-      </form>
-
-      <!-- Dropdown -->
-      <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
-          <div class="profile-avatar">S</div>
+  <header class="p-3 mb-3">
+    <div class="container">
+      <div id="header-container" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="position: relative;">
+        
+        <!-- Logo -->
+        <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+          <img src="/bullseye.svg" alt="Logo" style="width: 40px; height:50px; margin: 0 30px 0 -10px;">
         </a>
-        <ul class="dropdown-menu dropdown-menu-end text-small">
-          <li><a class="dropdown-item" href="#">Overview</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Progress</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
+
+        <!-- Nav Links -->
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="overviewPage.html" class="nav-link px-2">Dashboard</a></li>
+          <li><a href="#" class="nav-link px-2">Knowledge Graph</a></li>
+          <li><a href="#" class="nav-link px-2">Analytics</a></li>
+          <li><a href="#" class="nav-link px-2">Integrations</a></li>
+          <li><a href="#" class="nav-link px-2">Certificates</a></li>
         </ul>
+
+        <!-- Search -->
+        <form class="search-form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" id="searchInput" class="form-control" placeholder="Discover relationships in your skill map…">
+        </form>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+            <div class="profile-avatar">S</div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-small">
+            <li><a class="dropdown-item" href="#">Overview</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Progress</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+
       </div>
-
     </div>
-  </div>
-</header>
+  </header>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- HERO -->
+  <section class="hero">
+    <h1>Your Knowledge. Mapped. Measured. Optimized.</h1>
+    <p>
+      Our Interactive 3D Knowledge Graph Builder analyzes your GitHub repositories,
+      certifications, and project data to construct a dynamic intelligence network.
+      We don’t just track what you know — we understand how your skills connect,
+      evolve, and where they need improvement.
+    </p>
+  </section>
 
-<script>
-  // Search bar expansion functionality
-  const searchInput = document.getElementById('searchInput');
-  const searchForm = document.querySelector('.search-form');
-  const headerContainer = document.getElementById('header-container');
+  <!-- WHAT WE ANALYZE -->
+  <section class="section">
+    <div class="container changed">
+      <h2>What We Analyze</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>GitHub Intelligence</h5>
+            <p >Repository languages, commit frequency, project complexity, and contribution patterns.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>Certification Mapping</h5>
+            <p>Domains covered, skill categories unlocked, and cross-domain relationships.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>Skill Relationships</h5>
+            <p>Dependencies, missing prerequisites, and structural knowledge gaps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  searchInput.addEventListener('focus', function() {
-    searchForm.classList.add('expanded');
-    headerContainer.classList.add('search-expanded');
-  });
+  <!-- HOW WE CONCLUDE -->
+  <section class="section">
+    <div class="container" style="margin-top: -40px;">
+      <h2>How We Conclude Improvements</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-custom">
+            <h5>Graph Centrality Analysis</h5>
+            <p>We identify your strongest and weakest nodes using relationship density and influence scoring.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom">
+            <h5>Gap Detection Engine</h5>
+            <p>If skills are isolated or missing logical progression, we recommend targeted learning steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  searchInput.addEventListener('blur', function() {
-    // Small delay to allow clicking on search results if needed
-    setTimeout(() => {
-      searchForm.classList.remove('expanded');
-      headerContainer.classList.remove('search-expanded');
-    }, 150);
-  });
-</script>
+  <!-- AI INSIGHTS -->
+  <section class="section">
+    <div class="container"  style="margin-top: -40px;">
+      <h2>AI-Driven Recommendations</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>Next Skill to Unlock</h5>
+            <p>Based on incomplete skill chains and detected gaps in your graph.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>Suggested Project</h5>
+            <p>Combining adjacent skill nodes to create meaningful real-world builds.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom">
+            <h5>Career Path Match</h5>
+            <p>We compare your skill network against predefined career graphs to estimate readiness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</body>
-</html>
+  <footer class="">
+      <p class="foot-text">© 2026 SkillGraph AI — Transforming Experience into Intelligence</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Search bar expansion functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.querySelector('.search-form');
+    const headerContainer = document.getElementById('header-container');
+
+    searchInput.addEventListener('focus', function() {
+      searchForm.classList.add('expanded');
+      headerContainer.classList.add('search-expanded');
+    });
+
+    searchInput.addEventListener('blur', function() {
+      // Small delay to allow clicking on search results if needed
+      setTimeout(() => {
+        searchForm.classList.remove('expanded');
+        headerContainer.classList.remove('search-expanded');
+      }, 150);
+    });
+  </script>
+
+  </body>
+  </html>
 

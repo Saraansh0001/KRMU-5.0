@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oveview </title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/active.css">
+  <link rel="stylesheet" href="CSS/header.css">
+  <link rel="stylesheet" href="CSS/footer.css">
+
+  <style>
+        /* ===============================
+      ORIGINAL COLOR PALETTE
+    ================================ */
+    :root {
+      --primary-blue: #1462A6;
+      --navy-blue: #0A3D62;
+      --sky-blue: #44C1F2;
+      --custom-blue: #006ebd;      
+      --cyan: #72F2F2;
+      --coral: #D98673;
+      --dark: #0D0D0D;
+    }
+
+    /* ===============================
+      BODY BACKGROUND
+    ================================ */
+    body {
+      background: linear-gradient(
+        145deg,
+        var(--sky-blue) 0%,
+        var(--primary-blue) 35%,
+        var(--navy-blue) 75%,
+        var(--dark) 100%
+      );
+      min-height: 100vh;
+    }
+
+  </style>
+  
+</head>
+
+<body>
+
+    <header class="p-3 mb-3">
+    <div class="container">
+      <div id="header-container" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="position: relative;">
+        
+        <!-- Logo -->
+        <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
+          <img src="/bullseye.svg" alt="Logo" style="width: 40px; height:50px; margin: 0 30px 0 -10px;">
+        </a>
+
+        <!-- Nav Links -->
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="overviewPage.html" class="nav-link px-2 active">Dashboard</a></li>
+          <li><a href="#" class="nav-link px-2">Knowledge Graph</a></li>
+          <li><a href="#" class="nav-link px-2">Analytics</a></li>
+          <li><a href="#" class="nav-link px-2">Integrations</a></li>
+          <li><a href="#" class="nav-link px-2">Certificates</a></li>
+        </ul>
+
+        <!-- Search -->
+        <form class="search-form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" id="searchInput" class="form-control" placeholder="Discover relationships in your skill map…">
+        </form>
+
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+            <div class="profile-avatar">S</div>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-small">
+            <li><a class="dropdown-item" href="#">Overview</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Progress</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+</body>
+</html>
